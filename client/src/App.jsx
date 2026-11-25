@@ -382,8 +382,40 @@ function App() {
                           </span>
                         </div>
 
-                        <label>AI SUMMARY</label>
-                        <p>{selected.aiAnalysis.summary}</p>
+                        
+{selected.aiAnalysis.summary && (
+  <div className="detail-block">
+    <label>AI SUMMARY</label>
+    <p className="description">
+      {selected.aiAnalysis.summary}
+    </p>
+  </div>
+)}
+
+<div className="detail-block">
+  <label>CATEGORY REASON</label>
+  <p className="description">
+    {selected.aiAnalysis.categoryReason ||
+      'Category explanation is not available.'}
+  </p>
+</div>
+
+<div className="detail-block">
+  <label>PRIORITY REASON</label>
+  <p className="description">
+    {selected.aiAnalysis.priorityReason ||
+      'Priority explanation is not available.'}
+  </p>
+</div>
+
+<div className="detail-block">
+  <label>RECOMMENDED ACTION</label>
+  <p className="description">
+    {selected.aiAnalysis.recommendedAction ||
+      'No recommended action is available.'}
+  </p>
+</div>
+
 
                         <label>SUGGESTED RESPONSE</label>
                         <div className="reply">
