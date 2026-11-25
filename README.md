@@ -56,25 +56,15 @@ Open the Vite URL shown in the terminal (usually `http://localhost:5173`).
 | DELETE | `/api/tickets/:id` | Delete ticket |
 | POST | `/api/ai/analyze` | Analyze a ticket using Gemini + retrieved knowledge |
 
-## Deploy
+## Deployment Status
 
-### MongoDB Atlas
-1. Create a free cluster at https://www.mongodb.com/atlas.
-2. Create a database user and allow your deployment host IP access (for a quick demo, Atlas network access can be configured appropriately; avoid broad access for production).
-3. Copy the driver connection string.
+Currently, DevAssist AI is configured to run locally.
 
-### Backend on Render
-1. Push this repository to GitHub.
-2. Create a new **Web Service** in Render and select the repository.
-3. Set **Root Directory** to `server`, **Build Command** to `npm install`, **Start Command** to `npm start`.
-4. Add environment variables: `MONGODB_URI`, `GEMINI_API_KEY`, `CLIENT_ORIGIN` (your deployed frontend URL), and `NODE_ENV=production`.
-5. Deploy and copy the backend URL.
+- Frontend: React + Vite (`http://localhost:5173/`)
+- Backend: Node.js + Express (`http://localhost:5000/`)
+- Database: MongoDB Atlas (cloud-hosted database)
 
-### Frontend on Vercel
-1. Import the same GitHub repository into Vercel.
-2. Set **Root Directory** to `client`.
-3. Add `VITE_API_URL` = your Render backend URL (no trailing slash).
-4. Deploy. Add the Vercel URL to the backend's `CLIENT_ORIGIN` on Render and redeploy.
+The application has not yet been deployed to Render or Vercel. It can be run locally by following the setup instructions above.
 
 ## Important notes
 - The Gemini API key belongs only in the backend environment variables. Never put it in `VITE_*` variables or frontend code.
